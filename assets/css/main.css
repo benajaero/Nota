@@ -4,4 +4,5 @@
 
 textarea.u-full-height {
     height: 100vh;
+    text-align: left;
 }
