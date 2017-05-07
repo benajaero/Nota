@@ -1,9 +1,33 @@
-const app = require('electron').app
-const ipcMain = require('electron').ipcMain
+const path = require('path')
+const url = require('url')
+const electron = require('electron')
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
+const ipcMain = electron.ipcMain
 
-app.on('ready', () => {
+
+let win
+
+function makeWin() {
+    win = new BrowserWindow({width: 720, height: 512})
     
-})
+    win.loadURL(url.format({
+        pathname: path.join(__dirname, "index.html"),
+        protocol: "file:",
+        slashes: true
+    }))
+    
+    win.on('closed', () => {
+        win = null
+    })
+}
+
+app.on('ready', makeWin)
+
+
+
+
+
 
 app.on('window-all-closed', () => {
     app.quit()
