@@ -1,0 +1,23 @@
+{
+  "name": "nota",
+  "version": "1.0.0",
+  "description": "A minimalistic note taking application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blaze349/Nota.git"
+  },
+  "author": "Blaze349",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Blaze349/Nota/issues"
+  },
+  "homepage": "https://github.com/Blaze349/Nota#readme",
+  "devDependencies": {
+    "electron": "^1.6.6"
+  }
+}
