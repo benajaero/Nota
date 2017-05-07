@@ -9,7 +9,7 @@ const ipcMain = electron.ipcMain
 let win
 
 function makeWin() {
-    win = new BrowserWindow({width: 720, height: 512})
+    win = new BrowserWindow({width: 1024, height: 720})
     
     win.loadURL(url.format({
         pathname: path.join(__dirname, "index.html"),
