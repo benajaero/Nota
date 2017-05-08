@@ -9,13 +9,15 @@ const ipcMain = electron.ipcMain
 let win
 
 function makeWin() {
-    win = new BrowserWindow({width: 1024, height: 720})
+    win = new BrowserWindow({width: 1024, height: 512})
     
     win.loadURL(url.format({
         pathname: path.join(__dirname, "index.html"),
         protocol: "file:",
         slashes: true
     }))
+    
+    //win.webContents.openDevTools()
     
     win.on('closed', () => {
         win = null

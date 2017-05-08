@@ -1,8 +1,25 @@
-.u-full-height {
+
+
+u-full-height {
     height: 100%;
+   
 }
 
-textarea.u-full-height {
-    height: 100vh;
-    text-align: left;
+
+.container, .row, form, textarea {
+    padding: 0px;
+    margin: 0px;
 }
+
+textarea {
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+}
+
+
+form {
+    height: 100vh;
+}
+
