@@ -5,6 +5,11 @@ u-full-height {
 }
 
 
+form {
+    height: 100vh;
+    width: 100%;
+}
+
 .container, .row, form, textarea {
     padding: 0px;
     margin: 0px;
@@ -12,13 +17,17 @@ u-full-height {
 
 textarea {
     padding: 5px;
+    padding-bottom: 0px;
     height: 100%;
     width: 100%;
     border-radius: 0px;
 }
 
 
-form {
-    height: 100vh;
+
+
+.column {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
