@@ -4,7 +4,7 @@
   "description": "A minimalistic note taking application",
   "main": "main.js",
   "scripts": {
-    "prebuild": "./prebuild",
+    "prebuild": "./prebuild.sh",
     "start": "npm run prebuild && electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
