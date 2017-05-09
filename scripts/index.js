@@ -1,5 +1,6 @@
 let fs = require('fs')
 let parseJSON = require('json-parse-async')
+let randomstring = require('randomstring')
 
 let sidelist = document.getElementById('sidelist')
 sidelist.innerHTML = ""
@@ -25,7 +26,8 @@ button.addEventListener('click', () => {
     let obj = {
         name: '',
         date: '',
-        file: ''
+        file: randomstring.generate() + '.md',
+        id: `${notae.notae.length - 1}`
     }
     notae.notae.push(obj)
     writeMetadata()
@@ -54,5 +56,10 @@ function name(nota, newVal) {
 }
 
 function renameFile(nota) {
-    
+    let newName = notae.notae[nota].name.split(' ').join('-')
+    fs.rename(`./notae/${notae.notae[nota].file}`, `./notae/${newName}`, err => {
+        if (err) throw err
+        notae.notae[nota].file = newName
+        writeMetadata()
+    })
 }
