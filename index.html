@@ -6,19 +6,27 @@
         <link rel="stylesheet" href="./assets/css/normalize.css" type="text/css" />
         <link rel="stylesheet" href="./assets/css/skeleton.css" type="text/css" />
         <link rel="stylesheet" href="./assets/css/main.css" type="text/css" />
-      </head>
-      <body class=''>
+     </head>
+     <body class=''>
         <div class='container u-full-width'>
             <div class='row u-full-width'>
-                <div class='one-half column u-full-width'>
+                <div class='two columns sidebar'>
+                    <button class='plus-icon' id='addnota'>+</button>
+                    <ul id='sidelist'>
+                        <li>Hello</li>
+                        <li>Its me</li>
+                    </ul>
+                </div>
+                <div class='five columns u-full-width'>
                     <form class='u-full-height'>
                         <textarea class='u-full-width u-full-height' id='input'></textarea>
                     </form>
                 </div>
-                <div class='one-half column' id='preview'>
+                <div class='five columns' id='preview'>
                 </div>
             </div>
         </div>
         <script src='./scripts/converter.js'></script>
-      </body>
+        <script src='./scripts/index.js'></script>
+     </body>
 </html>

@@ -10,6 +10,21 @@ form {
     width: 100%;
 }
 
+.text-align-center {
+    text-align: center;
+}
+
+.plus-icon {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.width80 {
+    width: 80%;
+}
+
+
 .container, .row, form, textarea {
     padding: 0px;
     margin: 0px;
