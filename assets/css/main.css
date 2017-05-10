@@ -39,7 +39,23 @@ container, row, columns {
 }
 
 
+.sideitem {
+    list-style:none;
+    border: #bbb 1px solid;
+    width: 100%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    min-height: 50px;
+}
+
+
+
+.sidelist {
+    width: 100%;
+}
+
 .container, .row, form, textarea {
+    margin:auto;
     padding: 0px;
     margin: 0px;
 }
@@ -62,5 +78,6 @@ textarea {
 .columns {
     padding-bottom: 0px;
     margin-bottom: 0px;
+    margin:2px;
 }
 
