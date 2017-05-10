@@ -46,6 +46,11 @@ container, row, columns {
     margin-top: 1px;
     margin-bottom: 1px;
     min-height: 50px;
+    background-color: inherit;
+}
+
+.active {
+    background-color: #f4f4f4;
 }
 
 

@@ -19,6 +19,10 @@ titleInput.addEventListener('keydown', (e) => {
         name(currentNota.id, titleInput.value)
     }
 })
+
+
+
+
 fs.readFile('./notae.json', 'utf-8', (err, data) => {
     if (err) throw err
     parseJSON(data, (err, datae) => {
@@ -49,7 +53,23 @@ button.addEventListener('click', () => {
 function loadSidebar(notae) {
     sidelist.innerHTML = ''
     for (var i = 0; i < notae.notae.length; i++) {
-        sidelist.innerHTML = sidelist.innerHTML + `<li class='sideitem'> <h5>${notae.notae[i].name}</h5> <p> ${notae.notae[i].date} </p> </li>`
+        sidelist.innerHTML = sidelist.innerHTML + `<li class='sideitem active'> <h5>${notae.notae[i].name}</h5> <p> ${notae.notae[i].date} </p> </li>`
+    }
+    let sideitems = document.getElementsByClassName('sideitem')
+
+
+
+    console.log(sideitems.length)
+    for (var i = 0; i < sideitems.length; i++) {
+        console.log("Looping")
+        sideitems[i].addEventListener('click', () => {
+            let actives = document.getElementsByClassName('active')
+            for (var i = 0; i < actives.length; i++) {
+              actives[i].classList.remove('active')  
+            }
+            
+            sideitems[i].classList.add('active')
+        })
     }
 }
 
