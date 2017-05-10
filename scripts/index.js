@@ -42,7 +42,7 @@ function loadSidebar(notae) {
 
 
 function writeMetadata() {
-    fs.writeFile('./notae.json', JSON.stringify(notae), 'utf-8', (err) => {
+    fs.writeFile('./notae.json', JSON.stringify(notae, null, 4), 'utf-8', (err) => {
         if (err) throw err
         console.log("Written metadata")
     })

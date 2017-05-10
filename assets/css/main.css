@@ -5,14 +5,28 @@ u-full-height {
 }
 
 
-form {
-    height: 100vh;
+.form {
+    height: 90vh;
     width: 100%;
 }
 
 .text-align-center {
     text-align: center;
 }
+
+container, row, columns {
+    height: 100vh;
+}
+
+
+#title {
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+}
+
 
 .plus-icon {
     margin: auto;
@@ -32,16 +46,20 @@ form {
 
 textarea {
     padding: 5px;
+    padding-top: 0px;
     padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     height: 100%;
     width: 100%;
     border-radius: 0px;
+    border-bottom-width: 0px;
 }
 
 
 
 
-.column {
+.columns {
     padding-bottom: 0px;
     margin-bottom: 0px;
 }

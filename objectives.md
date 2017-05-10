@@ -9,4 +9,4 @@ I want to
 * I want sidebar to list metadata file
 * Make files
 * Opens file
-* Closes file
+* Closes file           
