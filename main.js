@@ -16,7 +16,7 @@ function makeWin() {
         protocol: "file:",
         slashes: true
     }))
-    
+    win.setMenu(null)
     //win.webContents.openDevTools()
     
     win.on('closed', () => {

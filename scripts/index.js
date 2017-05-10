@@ -8,15 +8,23 @@ let button = document.getElementById('addnota')
 let titleInput = document.getElementById('title')
 
 
+//I'll use this to store the note so that I can pass in the functions
+let currentNota = null
+
 let notae = {}
 
-
+titleInput.addEventListener('keydown', (e) => {
+    if (e.keyCode == 13) {
+        console.log("Key code 13")
+        name(currentNota.id, titleInput.value)
+    }
+})
 fs.readFile('./notae.json', 'utf-8', (err, data) => {
     if (err) throw err
     parseJSON(data, (err, datae) => {
         if (err) throw err
         notae = datae
-        
+        currentNota = notae.notae[0]
         loadSidebar(notae)
     })
 })
@@ -27,8 +35,13 @@ button.addEventListener('click', () => {
         name: '',
         date: '',
         file: randomstring.generate() + '.md',
-        id: `${notae.notae.length}`
+        id: notae.notae.length
     }
+    
+    fs.writeFile(`./notae/${obj.file}`, "# This is an empty file", 'utf-8', err => {
+        if (err) throw err
+    })
+    
     notae.notae.push(obj)
     writeMetadata()
 })
@@ -42,6 +55,7 @@ function loadSidebar(notae) {
 
 
 function writeMetadata() {
+    console.log("Writing metadata")
     fs.writeFile('./notae.json', JSON.stringify(notae, null, 4), 'utf-8', (err) => {
         if (err) throw err
         console.log("Written metadata")
@@ -50,6 +64,7 @@ function writeMetadata() {
 }
 
 function name(nota, newVal) {
+    console.log("Renaming")
     notae.notae[nota].name = newVal
     renameFile(nota)
     writeMetadata()
