@@ -5,7 +5,7 @@ let randomstring = require('randomstring')
 let sidelist = document.getElementById('sidelist')
 sidelist.innerHTML = ""
 let button = document.getElementById('addnota')
-
+let titleInput = document.getElementById('title')
 
 
 let notae = {}
@@ -27,7 +27,7 @@ button.addEventListener('click', () => {
         name: '',
         date: '',
         file: randomstring.generate() + '.md',
-        id: `${notae.notae.length - 1}`
+        id: `${notae.notae.length}`
     }
     notae.notae.push(obj)
     writeMetadata()
