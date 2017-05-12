@@ -38,6 +38,8 @@ $(document).ready(() => {
                 currentNota = notae.notae[0]
                 open(currentNota.id) 
                 loadSidebar(notae, 0)
+                if (currentNota.name != '') titleInput.value = currentNota.name
+                
             }
             
             

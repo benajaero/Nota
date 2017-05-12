@@ -84,6 +84,9 @@ container, row, columns {
     overflow: scroll;
 }
 
+#preview {
+    padding: 10px;
+}
 .container, .row, form, textarea {
     margin:auto;
     padding: 0px;
