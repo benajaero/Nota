@@ -59,6 +59,7 @@ $(document).ready(() => {
         })
         
         notae.notae.unshift(obj)
+        currentNota = notae.notae[0]
         writeMetadata()
     })
     
@@ -69,13 +70,20 @@ $(document).ready(() => {
         })
         //then delete metadata
         notae.notae.splice(currentNota.id, 1)
-        currentNota = notae.notae[currentNota.id + 1]
+        if (notae.notae.length > 0) {
+            currentNota = notae.notae[currentNota.id - 1]
         
-        //change ids
-        for (var i = notae.notae.length; i <= currentNota.id; i--) {
-            notae.notae[i].id -= 1
+            //change ids
+            
+            for (var i = notae.notae.length; i > currentNota.id; i--) {
+                notae.notae[i].id -= 1
+            }
+            currentNota.id -= 1
+        } else {
+            currentNota = null
         }
-        currentNota.id -= 1
+        
+        
         writeMetadata()
     })
     
@@ -142,7 +150,12 @@ $(document).ready(() => {
             if (err) throw err
             console.log("Written metadata")
         })
-        loadSidebar(notae, currentNota.id)
+        if (currentNota != null) {
+            loadSidebar(notae, currentNota.id)
+        } else {
+            loadSidebar(notae)
+        }
+        
     }
     
     function name(nota, newVal) {
