@@ -6,13 +6,14 @@
         <link rel="stylesheet" href="./assets/css/normalize.css" type="text/css" />
         <link rel="stylesheet" href="./assets/css/skeleton.css" type="text/css" />
         <link rel="stylesheet" href="./assets/css/main.css" type="text/css" />
+        <link rel='stylesheet' href='./assets/css/font-awesome.min.css' type='text/css'/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" onload="window.$ = window.jQuery = module.exports;"></script>
      </head>
      <body class=''>
         <div class='container u-full-width'>
             <div class='row u-full-width'>
-                <div class='two columns sidebar'>
-                    <button class='plus-icon' id='addnota'>+</button>
+                <div class='two columns sidebar form'>
+                    <span class='icon' id='addnota'><i class="fa fa-plus fa-3x" aria-hidden="true"></i></span><span class='icon' id='deletenota'><i class="fa fa-trash-o fa-3x" aria-hidden="true"></i></span>
                     <ul id='sidelist'>
                     </ul>
                 </div>

@@ -10,6 +10,7 @@ $(document).ready(() => {
     let sidelist = document.getElementById('sidelist')
     sidelist.innerHTML = ""
     let button = document.getElementById('addnota')
+    let deleter = document.getElementById('deletenota')
     let titleInput = document.getElementById('title')
     
     
@@ -34,10 +35,9 @@ $(document).ready(() => {
             if (err) throw err
             notae = datae
             if (notae.notae.length > 0) {
-                let index = notae.notae.length-1
-                currentNota = notae.notae[index]
+                currentNota = notae.notae[0]
                 open(currentNota.id) 
-                loadSidebar(notae, currentNota.id)
+                loadSidebar(notae, 0)
             }
             
             
@@ -59,6 +59,23 @@ $(document).ready(() => {
         })
         
         notae.notae.unshift(obj)
+        writeMetadata()
+    })
+    
+    deleter.addEventListener('click', () => {
+        //first delete real file
+        fs.unlink('./notae/' + currentNota.file, (err) => {
+            if (err) throw err
+        })
+        //then delete metadata
+        notae.notae.splice(currentNota.id, 1)
+        currentNota = notae.notae[currentNota.id + 1]
+        
+        //change ids
+        for (var i = notae.notae.length; i <= currentNota.id; i--) {
+            notae.notae[i].id -= 1
+        }
+        currentNota.id -= 1
         writeMetadata()
     })
     

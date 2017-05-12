@@ -1,5 +1,9 @@
 
 
+body {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
 u-full-height {
     height: 100%;
 }
@@ -21,7 +25,7 @@ container, row, columns {
 
 #title {
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 4px;
     margin-top: 5px;
     border-bottom-width: 0px;
     border-top-width: 0px;
@@ -29,16 +33,27 @@ container, row, columns {
 }
 
 
-.plus-icon {
+
+.icon {
     margin: auto;
     text-align: center;
-    width: 100%;
+    display: inline;
+    color: #bbb;
+    width:50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 5px;
 }
 
 .width80 {
     width: 80%;
 }
 
+.fa {
+    text-align: center;
+    margin:auto;
+    padding: auto;
+}
 
 .sideitem {
     list-style:none;
@@ -50,6 +65,14 @@ container, row, columns {
     background-color: inherit;
 }
 
+.fa-trash-o:hover {
+    color:red;
+}
+
+.fa-plus:hover {
+    color:black;
+}
+
 .active {
     background-color: #f4f4f4;
 }
@@ -58,6 +81,7 @@ container, row, columns {
 
 .sidelist {
     width: 100%;
+    overflow: scroll;
 }
 
 .container, .row, form, textarea {
@@ -80,10 +104,11 @@ textarea {
 
 
 
-
 .columns {
     padding-bottom: 0px;
     margin-bottom: 0px;
     margin:2px;
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
