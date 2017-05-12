@@ -33,7 +33,7 @@ $(document).ready(() => {
         parseJSON(data, (err, datae) => {
             if (err) throw err
             notae = datae
-            currentNota = notae.notae[0]
+            currentNota = notae.notae[notae.notae.length - i]
             open(currentNota.id)
             loadSidebar(notae, currentNota.id)
         })
@@ -72,9 +72,9 @@ $(document).ready(() => {
         for (var i = 0; i < notae.notae.length; i++) {
             var string = ''
             if (i == id) {
-                string = '<li class="sideitem active"> <h5>' + notae.notae[i].name + '</h5> <p>' + notae.notae[i].date + '</p> </li>\n'
+                string = '<li class="sideitem active"> <h5>' + notae.notae[notae.notae.length - i].name + '</h5> <p>' + notae.notae[notae.notae.length - i].date + '</p> </li>\n'
             } else {
-                string = '<li class="sideitem"> <h5>' + notae.notae[i].name + '</h5> <p>' + notae.notae[i].date + '</p> </li>\n'
+                string = '<li class="sideitem"> <h5>' + notae.notae[notae.notae.length - i].name + '</h5> <p>' + notae.notae[notae.notae.length - i].date + '</p> </li>\n'
             }
             console.log(string)
             $('#sidelist').append(string)
