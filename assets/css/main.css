@@ -1,126 +1,31 @@
-
-
-body {
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-}
-u-full-height {
-    height: 100%;
-}
-
-
-.form {
-    height: 90vh;
-    width: 100%;
-}
-
-.text-align-center {
+h1, h3, p.mainp {
     text-align: center;
+    color: white;
 }
 
-container, row, columns {
-    height: 100vh;
-}
-
-
-#title {
-    width: 100%;
-    margin-bottom: 4px;
-    margin-top: 5px;
-    border-bottom-width: 0px;
-    border-top-width: 0px;
-    border-radius: 0px;
-}
-
-
-
-.icon {
+.main {
+    background-color: #000000;
+    padding-top: 50px;
+    padding-bottom: 20px;
     margin: auto;
+}
+
+.downloads {
+    padding-top: 50px;
+    margin: auto;
+}
+.container, .row, .columns, .button {
     text-align: center;
-    display: inline;
-    color: #bbb;
-    width:50%;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 5px;
+    margin: auto;
 }
 
-.width80 {
-    width: 80%;
+u-pull-left, u-pull-right {
+     margin-top: 100px;
+}
+u-pull-left {
+    margin-left: 20px;
 }
 
-.fa {
-    text-align: center;
-    margin:auto;
-    padding: auto;
+u-pull-right {
+    margin-right: 20px;
 }
-
-.sideitem {
-    list-style:none;
-    border: #bbb 1px solid;
-    width: 100%;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    min-height: 50px;
-    background-color: inherit;
-}
-
-.fa-trash-o:hover {
-    color:red;
-}
-
-.fa-plus:hover {
-    color:black;
-}
-
-.active {
-    background-color: #f4f4f4;
-}
-
-.titletext {
-    padding: 5px;
-    padding-bottom: 2px;
-    margin-bottom: 0px;
-}
-
-.datetext {
-    padding: 5px;
-    padding-top: 0px;
-    margin-bottom: 0px;
-}
-.sidelist {
-    width: 100%;
-    overflow: scroll;
-}
-
-#preview {
-    padding: 10px;
-}
-.container, .row, form, textarea {
-    margin:auto;
-    padding: 0px;
-    margin: 0px;
-}
-
-textarea {
-    padding: 5px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    height: 100%;
-    width: 100%;
-    border-radius: 0px;
-    border-bottom-width: 0px;
-}
-
-
-
-.columns {
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-    margin:2px;
-    margin-right: 0px;
-    margin-left: 0px;
-}
-
