@@ -1,3 +1,6 @@
+var marked = require('marked')
+let ipc = require('electron').ipcRenderer
+
 
 $(document).ready(() => {
     let fs = require('fs')
@@ -31,7 +34,8 @@ $(document).ready(() => {
             if (err) throw err
             notae = datae
             currentNota = notae.notae[0]
-            loadSidebar(notae)
+            open(currentNota.id)
+            loadSidebar(notae, currentNota.id)
         })
     })
     
@@ -39,7 +43,7 @@ $(document).ready(() => {
     button.addEventListener('click', () => {
         let obj = {
             name: '',
-            date: '',
+            date: new Date().toDateString(),
             file: randomstring.generate() + '.md',
             id: notae.notae.length
         }
@@ -52,10 +56,26 @@ $(document).ready(() => {
         writeMetadata()
     })
     
-    function loadSidebar(notae) {
+    ipc.on('save', () => {
+        //save
+        console.log($('#input').val())
+        fs.writeFile('./notae/' + currentNota.file, $('#input').val(), 'utf-8', (err) => {
+            if (err) throw err
+        })
+        //show save banner
+    })
+    
+    
+    
+    function loadSidebar(notae, id) {
         $('#sidelist').empty()
         for (var i = 0; i < notae.notae.length; i++) {
-            var string = '<li class="sideitem"> <h5>' + notae.notae[i].name + '</h5> <p>' + notae.notae[i].date + '</p> </li>\n'
+            var string = ''
+            if (i == id) {
+                string = '<li class="sideitem active"> <h5>' + notae.notae[i].name + '</h5> <p>' + notae.notae[i].date + '</p> </li>\n'
+            } else {
+                string = '<li class="sideitem"> <h5>' + notae.notae[i].name + '</h5> <p>' + notae.notae[i].date + '</p> </li>\n'
+            }
             console.log(string)
             $('#sidelist').append(string)
         }
@@ -64,9 +84,22 @@ $(document).ready(() => {
             var index = $(this).index()
             console.log(index)
             currentNota = notae.notae[index]
-            
+            open(currentNota.id)
             $('.sideitem').removeClass('active')
             $(this).addClass('active')
+            
+            
+        })
+    }
+    
+    function open(nota) {
+        fs.readFile('./notae/' + notae.notae[nota].file, 'utf-8', (err, data) => {
+            if (err) throw err
+            var input = $('#input')
+            input.val(data)
+            var preview = marked(input.val())
+            $('#preview').empty()
+            $('#preview').append(preview)
         })
     }
     
@@ -77,7 +110,7 @@ $(document).ready(() => {
             if (err) throw err
             console.log("Written metadata")
         })
-        loadSidebar(notae)
+        loadSidebar(notae, currentNota.id)
     }
     
     function name(nota, newVal) {

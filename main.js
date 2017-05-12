@@ -4,7 +4,7 @@ const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const ipcMain = electron.ipcMain
-
+const globalShortcut = electron.globalShortcut
 
 let win
 
@@ -22,10 +22,13 @@ function makeWin() {
     win.on('closed', () => {
         win = null
     })
+    
+    globalShortcut.register('CommandOrControl+S', () => {
+        win.webContents.send('save')
+    })
 }
 
 app.on('ready', makeWin)
-
 
 
 

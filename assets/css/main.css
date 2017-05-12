@@ -25,6 +25,7 @@ container, row, columns {
     margin-top: 5px;
     border-bottom-width: 0px;
     border-top-width: 0px;
+    border-radius: 0px;
 }
 
 
