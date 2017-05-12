@@ -6,7 +6,9 @@
   "scripts": {
     "prebuild": "./prebuild.sh",
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pack": "build --dir",
+    "dist": "build"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,13 @@
   "bugs": {
     "url": "https://github.com/Blaze349/Nota/issues"
   },
+  "postinstall": "install-app-deps"
+  "build": {
+    "appId": "com.blaze349.nota",
+    "mac": {
+      "category": "productivity"
+    }
+  }
   "homepage": "https://github.com/Blaze349/Nota#readme",
   "devDependencies": {
     "electron": "^1.6.6",
