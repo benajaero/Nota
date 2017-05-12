@@ -112,9 +112,9 @@ $(document).ready(() => {
                 console.log(date)
                 
                 if (i == id) {
-                    string = '<li class="sideitem active"> <h5>' + name + '</h5> <p>' + date + '</p> </li>\n'
+                    string = '<li class="sideitem active"> <h6 class="titletext"><strong>' + name.substring(0, 10) + '</strong></h6> <p class="datetext">' + date + '</p> </li>\n'
                 } else {
-                    string = '<li class="sideitem"> <h5>' + name + '</h5> <p>' + date + '</p> </li>\n'
+                    string = '<li class="sideitem"> <h6 class="titletext"><strong>' + name.substring(0, 10) + '</strong></h6> <p class="datetext">' + date + '</p> </li>\n'
                 }
             }
             console.log(string)

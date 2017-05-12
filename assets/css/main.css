@@ -77,8 +77,17 @@ container, row, columns {
     background-color: #f4f4f4;
 }
 
+.titletext {
+    padding: 5px;
+    padding-bottom: 2px;
+    margin-bottom: 0px;
+}
 
-
+.datetext {
+    padding: 5px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
 .sidelist {
     width: 100%;
     overflow: scroll;
