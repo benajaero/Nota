@@ -89,10 +89,10 @@ $(document).ready(() => {
     
     function renameFile(nota) {
         let newName = notae.notae[nota].name.split(' ').join('-')
-        fs.rename(`./notae/${notae.notae[nota].file}.md`, `./notae/${newName}.md`, err => {
+        /*fs.rename(`./notae/${notae.notae[nota].file}.md`, `./notae/${newName}.md`, err => {
             if (err) throw err
             notae.notae[nota].file = newName
             writeMetadata()
-        })
+        })*/
     }
 })
