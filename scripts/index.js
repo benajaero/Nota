@@ -1,6 +1,6 @@
-var marked = require('marked')
+let marked = require('marked')
 let ipc = require('electron').ipcRenderer
-
+let moment = require('moment')
 
 $(document).ready(() => {
     let fs = require('fs')
@@ -33,9 +33,15 @@ $(document).ready(() => {
         parseJSON(data, (err, datae) => {
             if (err) throw err
             notae = datae
-            currentNota = notae.notae[notae.notae.length - i]
-            open(currentNota.id)
-            loadSidebar(notae, currentNota.id)
+            if (notae.notae.length > 0) {
+                let index = notae.notae.length-1
+                currentNota = notae.notae[index]
+                open(currentNota.id) 
+                loadSidebar(notae, currentNota.id)
+            }
+            
+            
+            
         })
     })
     
@@ -43,7 +49,7 @@ $(document).ready(() => {
     button.addEventListener('click', () => {
         let obj = {
             name: '',
-            date: new Date().toDateString(),
+            date: moment().format("MMM Do YYYY"),
             file: randomstring.generate() + '.md',
             id: notae.notae.length
         }
@@ -52,7 +58,7 @@ $(document).ready(() => {
             if (err) throw err
         })
         
-        notae.notae.push(obj)
+        notae.notae.unshift(obj)
         writeMetadata()
     })
     
@@ -71,10 +77,18 @@ $(document).ready(() => {
         $('#sidelist').empty()
         for (var i = 0; i < notae.notae.length; i++) {
             var string = ''
-            if (i == id) {
-                string = '<li class="sideitem active"> <h5>' + notae.notae[notae.notae.length - i].name + '</h5> <p>' + notae.notae[notae.notae.length - i].date + '</p> </li>\n'
-            } else {
-                string = '<li class="sideitem"> <h5>' + notae.notae[notae.notae.length - i].name + '</h5> <p>' + notae.notae[notae.notae.length - i].date + '</p> </li>\n'
+            if (notae.notae.length > 0) {
+                
+                let name = notae.notae[i].name
+                console.log(name)
+                let date = notae.notae[i].date
+                console.log(date)
+                
+                if (i == id) {
+                    string = '<li class="sideitem active"> <h5>' + name + '</h5> <p>' + date + '</p> </li>\n'
+                } else {
+                    string = '<li class="sideitem"> <h5>' + name + '</h5> <p>' + date + '</p> </li>\n'
+                }
             }
             console.log(string)
             $('#sidelist').append(string)
@@ -84,6 +98,7 @@ $(document).ready(() => {
             var index = $(this).index()
             console.log(index)
             currentNota = notae.notae[index]
+            console.log('current ',currentNota.id)
             open(currentNota.id)
             $('.sideitem').removeClass('active')
             $(this).addClass('active')
