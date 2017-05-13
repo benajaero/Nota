@@ -1,0 +1,20 @@
+{
+  "name": "nota",
+  "version": "1.0.0",
+  "description": "A minimalistic note taking application",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blaze349/Nota.git"
+  },
+  "author": "Blaze349",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Blaze349/Nota/issues"
+  },
+  "homepage": "https://github.com/Blaze349/Nota#readme",
+  "dependencies": {
+    "mkdirp": "^0.5.1"
+  },
+  "postinstall": "install-app-deps"
+}
