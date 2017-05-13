@@ -40,9 +40,8 @@ $(document).ready(() => {
         
         storage.get('notae', (err, data) => {
             if (err) throw err
-            parseJSON(data, (err, datae) => {
-                if (err) throw err
-                notae = datae
+            
+                notae = data
                 if (notae.notae.length > 0) {
                     currentNota = notae.notae[0]
                     open(currentNota.id) 
@@ -53,7 +52,7 @@ $(document).ready(() => {
                 
                 
                 
-            })
+        
         })
         
         

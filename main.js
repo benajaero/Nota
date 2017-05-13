@@ -5,11 +5,12 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const ipcMain = electron.ipcMain
 const globalShortcut = electron.globalShortcut
-let fs = require('fs')
+var mkdirp = require('mkdirp')
 
-if (!fs.existsSync(path.join('~', 'notae'))) {
-    fs.mkdirSync(path.join('~','notae'), 0755)
-}
+mkdirp(path.join('~', 'notae'), err => {
+    if (err) throw err
+    
+})
 
 let win
 
@@ -22,7 +23,7 @@ function makeWin() {
         slashes: true
     }))
     win.setMenu(null)
-    //win.webContents.openDevTools()
+    win.webContents.openDevTools()
     
     win.on('closed', () => {
         win = null
