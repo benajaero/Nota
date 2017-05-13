@@ -5,6 +5,11 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const ipcMain = electron.ipcMain
 const globalShortcut = electron.globalShortcut
+let fs = require('fs')
+
+if (!fs.existsSync(path.join('~', 'notae'))) {
+    fs.mkdirSync(path.join('~','notae'), 0755)
+}
 
 let win
 
